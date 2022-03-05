@@ -37,9 +37,10 @@ off=$(tput sgr0) # Sem cor
 #------------------------------------------------------------------------------|
 
 # Inicio do programa 
+
 function _init() {
 
-clear ; read -p "${yellow}
+tput civis ; clear ; read -p "${yellow}
           _   _   _   _   _   _   _   _   _   _   _   _  
          / \ / \ / \ / \ / \ / \ / \ / \ / \ / \ / \ / \ 
         ( M | I | C | R | O | - | A | P | A | C | H | E )
@@ -51,7 +52,7 @@ clear ; read -p "${yellow}
 
 	- 1 - Reiniciar o serviço do Apache
 	- 2 - Iniciar o serviço do Apache
-	- 3 - Para o serviço do Apache
+	- 3 - Parar o serviço do Apache
 	- 4 - Mostrar status do Apache
 	- 0 - Sair do menu
 
@@ -80,7 +81,7 @@ case $_OPC in
                 ;;
                 
         0)
-        	{ clear ; printf "${green}Saindo...$off" ; sleep 2s ; exit 0 ; }
+        	{ clear ; printf "${green}Saindo...$off" ; sleep 2s ; tput cnorm; exit 0 ; }
         	;;
         	
         *)
