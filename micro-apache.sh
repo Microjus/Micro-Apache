@@ -81,7 +81,7 @@ case $_OPC in
                 ;;
                 
         0)
-        	{ clear ; printf "${green}Saindo...$off" ; sleep 2s ; tput cnorm; exit 0 ; }
+        	{ clear ; printf "${green}Saindo...$off" ; sleep 2s ; tput reset ; exit 0 ; }
         	;;
         	
         *)
