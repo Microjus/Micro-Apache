@@ -17,4 +17,4 @@ $ chmod +x micro-apache.sh
 $ bash micro-apache.sh ou ./micro-apache.sh
 ```
 [Banner]: https://github.com/Microjus/Micro-Apache/blob/main/micro-apache-logo.png
-[Bash4.4.18-shield]: https://img.shields.io/badge/Bash-4.4.18%2B-brightgreen.svg "Bash 4.4.18 Ou superior"
+[Bash5.1.16-shield]: https://img.shields.io/badge/Bash-4.4.18%2B-brightgreen.svg "Bash 4.4.18 Ou superior"
