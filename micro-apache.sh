@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 #------------------------------CABEÇALHO---------------------------------------|
 #
 # AUTOR:             | Microjus <microjus.oficial@gmail.com>
