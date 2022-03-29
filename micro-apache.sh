@@ -15,6 +15,8 @@
                      
 #------------------------------VARIAVEIS---------------------------------------|
 
+ROOT_UID=0 # Somente usuários com $UID 0 têm privilégios de root.
+
 # Variaveis de cores 
 
 yellow=$(tput setaf 3) # Cor amarela
@@ -26,7 +28,7 @@ off=$(tput sgr0) # Sem cor
 
 # Verifica se o usiario é administrador do sistema.
 
-[[ "$UID" -ne '0' ]] && { clear ; printf "${red}E: Execute com root!$off" ; exit 100 ; }
+[[ "$UID" -ne "$ROOT_UID" ]] && { clear ; printf "${red}E: Execute com root!$off" ; exit 100 ; }
 
 
 # Verifica a existencia do apache no sistema
