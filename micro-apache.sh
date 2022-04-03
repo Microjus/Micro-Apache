@@ -29,7 +29,7 @@ off=$(tput sgr0) # Sem cor
 
 # Verifica se o usiario é administrador do sistema.
 
-[[ "$UID" -ne "$ROOT_UID" ]] && { clear ; printf "${red}E: Execute com root!$off" ; exit $E_NOTROOT ; }
+[[ "$UID" -ne "$ROOT_UID" ]] && { clear ; printf "E: Execute com root!" ; exit $E_NOTROOT ; }
 
 
 # Verifica a existencia do apache no sistema
