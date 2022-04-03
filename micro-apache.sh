@@ -16,7 +16,7 @@
 #------------------------------VARIAVEIS---------------------------------------|
 
 declare -r ROOT_UID=0   # Somente usuários com $UID 0 têm privilégios de administrador.
-declare -r E_NOTROOT=87 # Codigo de saida de erro para usuarios nao administrador.
+declare -r NOT_ROOT=87 # Codigo de saida de erro para usuarios nao administrador.
 declare -r NOT_FOUND=404 # Codigo de saidade  erro para programa nao encontrado.
 
 # Variaveis de cores 
@@ -30,12 +30,12 @@ off=$(tput sgr0) # Sem cor
 
 # Verifica se o usiario é administrador do sistema.
 
-[[ "$UID" -ne "$ROOT_UID" ]] && { clear ; printf 'E: Execute com root!' ; exit $E_NOTROOT ; }
+[[ "$UID" -ne "$ROOT_UID" ]] && { clear ; printf 'E: Execute com root!' ; exit $NOT_ROOT ; }
 
 
 # Verifica a existencia do apache no sistema
 
-[[ $(which apache2) ]] || { clear ; printf 'E: Apache não esta Instalado.' ; exit 1 ; }
+[[ $(which apache2) ]] || { clear ; printf 'E: Apache não esta Instalado!' ; exit $NOT_FOUND ; }
 
 #------------------------------------------------------------------------------|
 
