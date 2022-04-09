@@ -15,8 +15,8 @@
                      
 #------------------------------VARIAVEIS---------------------------------------|
 
-declare -r ROOT_UID=0   # Somente usuários com $UID 0 têm privilégios de administrador.
-declare -r NOT_ROOT=87 # Codigo de saida de erro para usuarios nao administrador.
+declare -r ROOT_UID=0    # Somente usuários com $UID 0 têm privilégios de administrador.
+declare -r NOT_ROOT=87   # Codigo de saida de erro para usuarios nao administrador.
 declare -r NOT_FOUND=404 # Codigo de saidade  erro para programa nao encontrado.
 
 # Variaveis de cores 
@@ -30,7 +30,7 @@ off=$(tput sgr0) # Sem cor
 
 # Verifica se o usiario é administrador do sistema.
 
-[[ "$UID" -ne "$ROOT_UID" ]] && { clear ; printf 'E: Execute com root!' ; exit $NOT_ROOT ; }
+[[ "$UID" -ne "$ROOT_UID" ]] && { printf "\033cE: Execute como adminstrador." ; exit $NOT_ROOT ; }
 
 
 # Verifica a existencia do apache no sistema
@@ -43,9 +43,8 @@ trap ctrl_c INT
 
 ctrl_c() {
 
-        clear ; printf "[+] (Ctrl + C ) Detectado, Tentativa de saida ...\n" ; sleep 2s
+        printf "\033c[+] (Ctrl + C ) Detectado, Tentativa de saida ...\n" ; sleep 2s
         printf "\n[+] Encerrando serviços , Aguarde  ...\n"
-        # Funçao de encerramento
         printf '\n[+] Obrigado por usar este programa  =).'
         exit 1 
 }
@@ -75,31 +74,31 @@ tput civis ; clear ; read -p "${yellow}
 case $_OPC in
 
         1)
-        	clear ; printf "${green}Reiniciando o serviço do Apache.$off"
+        	printf "\033c${green}Reiniciando o serviço do Apache.$off"
                 { sleep 2s ; systemctl restart apache2.service ; sleep 2s ; _init ; }
                 ;;
                 
         2)
-        	clear ; printf "${green}Iniciando serviço do Apache.$off" 
+        	printf "\033c${green}Iniciando serviço do Apache.$off" 
                 { sleep 2s ; systemctl start apache2.service ; sleep 2s ; _init ; }
                 ;;
                 
         3)	
-        	clear ; printf "${red}Parando o serviço do Apache.$off"
+        	printf "\033c${red}Parando o serviço do Apache.$off"
                 { sleep 2s ; systemctl stop apache2.service ; sleep 2s ; _init ; }
                 ;;
                 
         4)
-                clear ; printf "${green}APACHE STATUS$off"
+                printf "\033c${green}APACHE STATUS$off"
                 { sleep 2s ; systemctl status apache2 ; _init ; }
                 ;;
                 
         0)
-        	{ clear ; printf "${green}Saindo...$off" ; sleep 2s ; tput reset ; exit 0 ; }
+        	{ printf "\033c${green}Saindo...$off" ; sleep 2s ; tput reset ; exit 0 ; }
         	;;
         	
         *)
-                { clear ; printf "${red}Opção inválida$off" ; sleep 1s ; _init ; }
+                { printf "\033c${red}Opção inválida$off" ; sleep 1s ; _init ; }
                 ;;
 esac
 
