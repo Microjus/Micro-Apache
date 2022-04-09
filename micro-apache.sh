@@ -11,8 +11,9 @@
 # DESCRIÇÃO:         | Desenvolvido para fins didaticos 
 #		       porem util e pode ser utilizado 
 #		       por qualqer tipo de usuario.
-                     
-                     
+#------------------------------------------------------------------------------|                    
+ 
+ 
 #------------------------------VARIAVEIS---------------------------------------|
 
 declare -r ROOT_UID=0    # Somente usuários com $UID 0 têm privilégios de administrador.
@@ -22,9 +23,9 @@ declare -r NOT_FOUND=404 # Codigo de saidade  erro para programa nao encontrado.
 # Variaveis de cores 
 
 yellow=$(tput setaf 3) # Cor amarela
-green=$(tput setaf 2) # Cor verde
-red=$(tput setaf 1) # Cor vermelha
-off=$(tput sgr0) # Sem cor
+green=$(tput setaf 2)  # Cor verde
+red=$(tput setaf 1)    # Cor vermelha
+off=$(tput sgr0)       # Sem cor
 
 #-------------------------------TESTES-----------------------------------------|
 
