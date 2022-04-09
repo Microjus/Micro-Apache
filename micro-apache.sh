@@ -32,22 +32,26 @@ off=$(tput sgr0) # Sem cor
 
 [[ "$UID" -ne "$ROOT_UID" ]] && { printf "\033cE: Execute como adminstrador." ; exit $NOT_ROOT ; }
 
-
 # Verifica a existencia do apache no sistema
 
 [[ $(which apache2) ]] || { clear ; printf 'E: Apache não esta Instalado!' ; exit $NOT_FOUND ; }
 
+
 #------------------------------------------------------------------------------|
 
-trap ctrl_c INT
+#-------------------------------FUNÇOẼS----------------------------------------|
 
-ctrl_c() {
+# Funçao de encerramento do programa ao pressionar CTRL C
 
-        printf "\033c[+] (Ctrl + C ) Detectado, Tentativa de saida ...\n" ; sleep 2s
-        printf "\n[+] Encerrando serviços , Aguarde  ...\n"
-        printf '\n[+] Obrigado por usar este programa  =).'
-        exit 1 
+trap ctrl_c INT ; ctrl_c() {
+
+printf "\033c
+[+] (Ctrl + C ) Detectado, Tentativa de saida ...\n
+[+] Encerrando serviços , Aguarde  ...\n
+[+] Obrigado por usar este programa  =)\n" ; exit 1 
 }
+
+#------------------------------------------------------------------------------|
 
 # Inicio do programa 
 
